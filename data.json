@@ -1,16 +1,30 @@
 [
   {
     "id": "1",
-    "name": "Andi",
+    "name": "Naoki",
     "dob": "2009-05-12",
     "hobby": "Bermain bola",
     "photo": "20250520_192120.jpg"
   },
   {
     "id": "2",
-    "name": "Budi",
+    "name": "Nelson",
     "dob": "2009-08-24",
     "hobby": "Membaca buku",
-    "photo": "foto/budi.jpg"
+    "photo": "20250520_192120.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Nelson",
+    "dob": "2009-08-24",
+    "hobby": "Membaca buku",
+    "photo": "20250520_192120.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Nelson",
+    "dob": "2009-08-24",
+    "hobby": "Membaca buku",
+    "photo": "20250520_192120.jpg"
   }
 ]
