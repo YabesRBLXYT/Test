@@ -4,11 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kenangan Kelas 6B</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Orbitron', sans-serif;
@@ -44,6 +42,7 @@
       position: relative;
       cursor: pointer;
       transition: transform 0.2s ease;
+      background: transparent;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -55,7 +54,7 @@
     .student::before {
       content: '';
       display: block;
-      padding-top: 150%; /* 2:3 ratio */
+      padding-top: 150%;
     }
 
     .student-content {
@@ -150,11 +149,7 @@
     @media screen and (max-width: 768px) {
       .gallery {
         grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-      }
-
-      .modal-content {
-        max-width: 90%;
+        transform: scale(0.95);
       }
     }
 
@@ -169,8 +164,9 @@
       }
 
       .gallery {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
+        transform: scale(0.85);
       }
     }
   </style>
@@ -184,8 +180,8 @@
   <div id="modal">
     <div class="modal-content" id="modal-content">
       <div class="close" onclick="closeModal()">×</div>
-      <img id="modal-img" src="" alt="Foto siswa">
-      <p><strong>Nama:</strong> <span id="modal-name"></span></p>
+      <img id="modal-img" src="" alt="Foto siswa" />
+      <p><strong>Nama lengkap:</strong> <span id="modal-name"></span></p>
       <p><strong>Tanggal lahir:</strong> <span id="modal-dob"></span></p>
       <p><strong>Hobi:</strong> <span id="modal-hobby"></span></p>
       <p><strong>Nomor urut absen:</strong> <span id="modal-id"></span></p>
