@@ -31,39 +31,34 @@
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
       max-width: 1000px;
       margin: 0 auto;
     }
 
     .student {
+      width: calc(25% - 20px);
+      aspect-ratio: 2 / 3;
       position: relative;
       cursor: pointer;
-      transition: transform 0.2s ease;
       border-radius: 10px;
       overflow: hidden;
-      aspect-ratio: 2 / 3;
-      background: transparent;
+      background: #111;
+      box-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+      transition: transform 0.2s ease;
     }
 
     .student:hover {
       transform: scale(1.05);
     }
 
-    .student-content {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
     .student img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
     }
 
     .student-name {
@@ -139,23 +134,16 @@
       color: #ccc;
     }
 
+    @media screen and (max-width: 1024px) {
+      .student { width: calc(33.33% - 20px); }
+    }
+
     @media screen and (max-width: 768px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-      }
+      .student { width: calc(50% - 20px); }
     }
 
     @media screen and (max-width: 480px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-
+      .student { width: 100%; }
       .modal-content {
         padding: 15px;
         font-size: 0.9rem;
@@ -193,10 +181,8 @@
         const div = document.createElement('div');
         div.className = 'student';
         div.innerHTML = `
-          <div class="student-content">
-            <img src="${student.photo}" alt="${student.displayName}">
-            <div class="student-name">${student.displayName}</div>
-          </div>
+          <img src="${student.photo}" alt="${student.displayName}">
+          <div class="student-name">${student.displayName}</div>
         `;
         div.onclick = () => showModal(student);
         gallery.appendChild(div);
