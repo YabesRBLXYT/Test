@@ -1,4 +1,3 @@
-{
 [
   {
     "id": "1",
@@ -14,6 +13,4 @@
     "hobby": "Membaca buku",
     "photo": "foto/budi.jpg"
   }
-  // dst, total 23 siswa
 ]
-}
