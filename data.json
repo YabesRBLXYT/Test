@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1",
+    "name": "Andi",
+    "dob": "2009-05-12",
+    "hobby": "Bermain bola",
+    "photo": "foto/andi.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Budi",
+    "dob": "2009-08-24",
+    "hobby": "Membaca buku",
+    "photo": "foto/budi.jpg"
+  }
+  // dst, total 23 siswa
+]
