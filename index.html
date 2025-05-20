@@ -34,13 +34,14 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      grid-template-columns: repeat(4, 1fr); /* Fix 4 kolom */
       gap: 16px;
       max-width: 960px;
       margin: 0 auto;
     }
 
     .student {
+      position: relative;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -71,10 +72,6 @@
       font-weight: bold;
       color: #ffffff;
       text-shadow: 0 0 5px #0ff;
-    }
-
-    .student {
-      position: relative;
     }
 
     #modal {
@@ -135,9 +132,16 @@
       color: #ccc;
     }
 
+    @media screen and (max-width: 768px) {
+      .gallery {
+        transform: scale(0.85);
+        transform-origin: top center;
+      }
+    }
+
     @media screen and (max-width: 480px) {
       h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
 
       .modal-content {
@@ -145,8 +149,8 @@
         font-size: 0.9rem;
       }
 
-      .student::before {
-        padding-top: 150%;
+      .gallery {
+        transform: scale(0.7);
       }
     }
   </style>
