@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenangan Kelas 6B</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .student {
+      cursor: pointer;
+    }
+    .student img {
+      width: 100%;
+      border-radius: 8px;
+      height: 150px;
+      object-fit: cover;
+    }
+    .student-name {
+      margin-top: 5px;
+      font-weight: bold;
+    }
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+      max-width: 400px;
+      width: 90%;
+    }
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .close {
+      text-align: right;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 50px;
+      font-style: italic;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ini situs aku buat biar enggak lupa satu sama lain</h1>
+  <div class="gallery" id="gallery"></div>
+
+  <div id="modal">
+    <div class="modal-content">
+      <div class="close" onclick="closeModal()">X</div>
+      <img id="modal-img" src="" alt="Foto siswa">
+      <p><strong>Nama:</strong> <span id="modal-name"></span></p>
+      <p><strong>Tanggal lahir:</strong> <span id="modal-dob"></span></p>
+      <p><strong>Hobi:</strong> <span id="modal-hobby"></span></p>
+      <p><strong>Nomor urut absen:</strong> <span id="modal-id"></span></p>
+    </div>
+  </div>
+
+  <footer>
+    Situs ini dibuat oleh Yabes
+  </footer>
+
+  <script>
+    async function loadData() {
+      const res = await fetch('data.json');
+      const students = await res.json();
+      const gallery = document.getElementById('gallery');
+      students.forEach(student => {
+        const div = document.createElement('div');
+        div.className = 'student';
+        div.innerHTML = `
+          <img src="${student.photo}" alt="${student.name}">
+          <div class="student-name">${student.name}</div>
+        `;
+        div.onclick = () => showModal(student);
+        gallery.appendChild(div);
+      });
+    }
+
+    function showModal(student) {
+      document.getElementById('modal-img').src = student.photo;
+      document.getElementById('modal-name').textContent = student.name;
+      document.getElementById('modal-dob').textContent = student.dob;
+      document.getElementById('modal-hobby').textContent = student.hobby;
+      document.getElementById('modal-id').textContent = student.id;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
