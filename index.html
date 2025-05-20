@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kenangan Kelas 6B</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -44,7 +44,6 @@
       position: relative;
       cursor: pointer;
       transition: transform 0.2s ease;
-      background: transparent;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -56,7 +55,7 @@
     .student::before {
       content: '';
       display: block;
-      padding-top: 150%; /* 2:3 aspect ratio */
+      padding-top: 150%; /* 2:3 ratio */
     }
 
     .student-content {
@@ -150,8 +149,12 @@
 
     @media screen and (max-width: 768px) {
       .gallery {
-        transform: scale(0.85);
-        transform-origin: top center;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .modal-content {
+        max-width: 90%;
       }
     }
 
@@ -166,7 +169,8 @@
       }
 
       .gallery {
-        transform: scale(0.7);
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
       }
     }
   </style>
@@ -202,8 +206,8 @@
         div.className = 'student';
         div.innerHTML = `
           <div class="student-content">
-            <img src="${student.photo}" alt="${student.name}">
-            <div class="student-name">${student.name}</div>
+            <img src="${student.photo}" alt="${student.displayName}">
+            <div class="student-name">${student.displayName}</div>
           </div>
         `;
         div.onclick = () => showModal(student);
@@ -214,7 +218,7 @@
     function showModal(student) {
       location.hash = `#${student.id}`;
       document.getElementById('modal-img').src = student.photo;
-      document.getElementById('modal-name').textContent = student.name;
+      document.getElementById('modal-name').textContent = student.fullName;
       document.getElementById('modal-dob').textContent = student.dob;
       document.getElementById('modal-hobby').textContent = student.hobby;
       document.getElementById('modal-id').textContent = student.id;
