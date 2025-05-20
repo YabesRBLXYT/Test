@@ -1,28 +1,32 @@
 [
   {
     "id": "1",
-    "name": "Naoki",
+    "displayName": "Naoki",
+    "fullName": "Naoki Fajar Muliksan",
     "dob": "2009-05-12",
     "hobby": "Bermain bola",
     "photo": "20250520_192120.jpg"
   },
   {
     "id": "2",
-    "name": "Nelson",
+    "displayName": "Nelson",
+    "fullName": "",
     "dob": "2009-08-24",
     "hobby": "Membaca buku",
     "photo": "20250520_192120.jpg"
   },
   {
     "id": "3",
-    "name": "Nelson",
+    "displayName": "",
+    "fullName": "",
     "dob": "2009-08-24",
     "hobby": "Membaca buku",
     "photo": "20250520_192120.jpg"
   },
   {
     "id": "4",
-    "name": "Nelson",
+    "displayName": "",
+    "fullName": "",
     "dob": "2009-08-24",
     "hobby": "Membaca buku",
     "photo": "20250520_192120.jpg"
